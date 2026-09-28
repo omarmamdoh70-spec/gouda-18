@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gouda — 18</title>
+<style>
+:root{--bg:#070707;--fg:#f4f2ed;--muted:#aaa69e;--line:#262626}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+.hero{height:100svh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#050505}
+.hero-bg{position:absolute;inset:-7%;background-image:linear-gradient(180deg,rgba(0,0,0,.48),rgba(0,0,0,.62) 45%,#070707 100%),url("gouda-football.jpg");background-size:cover;background-position:center 36%;animation:ken 16s ease-in-out infinite alternate;filter:saturate(.72) contrast(1.05)}
+@keyframes ken{from{transform:scale(1)}to{transform:scale(1.09) translate3d(0,-1%,0)}}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,transparent 0,rgba(0,0,0,.18) 45%,rgba(0,0,0,.58) 100%);pointer-events:none}
+.hero-content{position:relative;z-index:2;text-align:center;padding:24px;animation:rise 1.2s ease both}
+.kicker{letter-spacing:.34em;font-size:11px;color:#c8c5be;margin-bottom:22px}.name{font-family:Georgia,serif;font-size:clamp(60px,19vw,118px);line-height:.82;letter-spacing:.02em;margin:0}.age{font-family:Georgia,serif;font-size:clamp(64px,20vw,120px);font-weight:400;line-height:1;color:#ddd;margin-top:14px}.tag{font-family:Georgia,serif;font-style:italic;font-size:18px;letter-spacing:.06em;margin-top:25px;color:#e2e0db}.scroll{position:absolute;bottom:32px;z-index:3;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.28em;color:#c9c6bf;animation:pulse 2s infinite}
+.scroll span{display:block;text-align:center;font-size:22px;margin-top:8px}
+@keyframes pulse{50%{opacity:.4}}@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+main{max-width:850px;margin:auto;padding:0 22px 80px}.section{padding:95px 0;border-bottom:1px solid var(--line)}.num{font-family:Georgia,serif;font-size:14px;color:#777;letter-spacing:.25em}.title{font-family:Georgia,serif;font-size:clamp(32px,9vw,58px);font-weight:400;margin:13px 0 12px}.desc{color:var(--muted);line-height:1.7;max-width:580px}.cards{display:grid;gap:12px;margin-top:30px}.card{min-height:110px;border:1px solid var(--line);padding:22px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#0c0c0c,#080808);transition:.3s}.card:hover{transform:translateY(-2px);border-color:#454545}.placeholder{color:#777;font-size:13px}.arrow{font-size:22px;color:#777}.locked{opacity:.72}.final{text-align:center;border:0;padding-top:120px}.final .title{font-size:clamp(38px,10vw,70px)}.from{margin-top:35px;color:#bdb9b0;font-family:Georgia,serif;font-style:italic}.lock{margin-top:70px;padding:25px;border:1px solid #292929;color:#777}.small{font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+@media(prefers-reduced-motion:reduce){.hero-bg{animation:none}.hero-content{animation:none}.scroll{animation:none}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="kicker">A PRIVATE LITTLE PLACE</div>
+    <h1 class="name">GOUDA</h1>
+    <div class="age">18</div>
+    <div class="tag">A little place made just for you.</div>
+  </div>
+  <div class="scroll">SCROLL TO BEGIN<span>↓</span></div>
+</section>
+
+<main>
+<section class="section"><div class="num">01</div><h2 class="title">OUR MEMORIES</h2><p class="desc">The photos, moments and little pieces of time that belong to us.</p><div class="cards"><div class="card"><span class="placeholder">Your photos will go here.</span><span class="arrow">→</span></div></div></section>
+<section class="section"><div class="num">02</div><h2 class="title">THINGS ONLY WE KNOW</h2><p class="desc">Inside jokes, screenshots, conversations and things that would make absolutely no sense to anyone else.</p><div class="cards"><div class="card"><span class="placeholder">Private memories — coming soon.</span><span class="arrow">→</span></div></div></section>
+<section class="section"><div class="num">03</div><h2 class="title">UNSEEN</h2><p class="desc">The moments nobody saw. Photos and videos that never made it to a story.</p><div class="cards"><div class="card"><span class="placeholder">Private photos & videos — coming soon.</span><span class="arrow">→</span></div></div></section>
+<section class="section"><div class="num">04</div><h2 class="title">LISTEN TO THIS</h2><p class="desc">You can read everything here. But some things are better heard from me.</p><div class="cards"><div class="card"><span class="placeholder">Voice message — we'll add it later.</span><span class="arrow">▶</span></div></div></section>
+<section class="section"><div class="num">05</div><h2 class="title">18 THINGS</h2><p class="desc">Eighteen little things about you, us, the memories we've made, and everything I hope this year brings you.</p><div class="cards"><div class="card"><span class="placeholder">18 personal notes — coming soon.</span><span class="arrow">18</span></div></div></section>
+<section class="section final"><div class="num">06</div><h2 class="title">ONE LAST THING</h2><p class="desc">A message from Do7aa to Gouda. This is where the real words will go.</p><div class="from">Happy 18th, Gouda.<br><br>From Do7aa ❤️</div><div class="lock"><div class="small">🔒 OPEN AT 19</div><p>A memory for next year.</p></div></section>
+</main>
+</body>
+</html>
