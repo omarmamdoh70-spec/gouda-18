@@ -15,6 +15,16 @@
 .gallery-frame:active{cursor:grabbing;}
 .gallery-hint{margin-top:14px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
 .music-btn{position:relative;z-index:5}
+
+<style>
+.voice-card{border:1px solid rgba(255,255,255,.10);border-radius:24px;padding:22px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));margin-top:28px;overflow:hidden}
+.voice-photo{width:100%;max-width:420px;aspect-ratio:4/5;object-fit:cover;display:block;margin:0 auto 22px;border-radius:18px;filter:saturate(.92);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.voice-hint{font-size:14px;line-height:1.8;opacity:.78;margin:0 0 20px}
+.voice-audio{width:100%;margin:0 0 18px}
+.music-again{display:none;width:100%;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);color:#fff;border-radius:999px;padding:13px 18px;font:inherit;font-size:13px;cursor:pointer}
+.music-again.show{display:block;animation:panelIn .3s ease both}
+.voice-after{font-size:13px;line-height:1.7;opacity:.62;margin:16px 0 0;text-align:center}
+</style>
 </style>
 
 <style>
@@ -129,7 +139,7 @@ body{overflow-x:hidden}
 </section>
 <section class="panel" id="panel-voice">
   <div class="panel-top"><button class="back">← BACK</button><div class="panel-label">02 / LISTEN TO THIS</div></div>
-  <div class="panel-inner"><h2>A voice, just for you.</h2><p class="intro">This is the part I'll add when I have the recording.</p><div class="placeholder"><span>COMING NEXT</span><h3>Your voice note will be here.</h3></div></div>
+  <div class="panel-inner"><h2>A voice, just for you.</h2><p class="intro">لو وقفت الأغنية عشان تسمعني… كمّلها بعد ما تخلص، تمام؟ 😂❤️</p><div class="voice-card"><img class="voice-photo" src="gouda-voice.jpg" alt="A little memory"><audio id="voiceAudio" class="voice-audio" controls preload="metadata" playsinline src="voice-note.m4a"></audio><button id="musicAgain" class="music-again" type="button">🎵 شغّل الأغنية تاني من الأول</button><p id="voiceAfter" class="voice-after">اسمعني للآخر 👀</p></div></div>
 </section>
 <section class="panel" id="panel-things">
   <div class="panel-top"><button class="back">← BACK</button><div class="panel-label">03 / 18 THINGS</div></div>
@@ -169,6 +179,30 @@ body{overflow-x:hidden}
   });
   audio.addEventListener('play',syncMusic);
   audio.addEventListener('pause',syncMusic);
+
+  const voiceAudio=document.getElementById('voiceAudio');
+  const musicAgain=document.getElementById('musicAgain');
+  const voiceAfter=document.getElementById('voiceAfter');
+  voiceAudio.addEventListener('play',()=>{
+    if(!audio.paused) audio.pause();
+    musicAgain.classList.remove('show');
+    voiceAfter.textContent='اسمعني للآخر 👀';
+  });
+  voiceAudio.addEventListener('ended',()=>{
+    musicAgain.classList.add('show');
+    voiceAfter.textContent='خلصت؟ 👀 طب كمّل الأغنية من الأول ❤️';
+  });
+  musicAgain.addEventListener('click',async()=>{
+    try{
+      audio.currentTime=0;
+      await audio.play();
+      syncMusic();
+      musicAgain.classList.remove('show');
+      voiceAfter.textContent='🎶 كده تمام… كمّلها للآخر ❤️';
+    }catch(e){
+      musicLabel.textContent='TAP AGAIN TO PLAY';
+    }
+  });
   document.querySelectorAll('.menu-card').forEach(btn=>btn.addEventListener('click',()=>{
     document.getElementById('panel-'+btn.dataset.panel).classList.add('open');
     document.body.style.overflow='hidden';
